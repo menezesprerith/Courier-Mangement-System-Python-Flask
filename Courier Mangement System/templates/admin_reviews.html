@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content%}
+
+{% include 'admin_header.html' %}
+
+
+  <h2 class="text-white text-center display-1 mt-5 mb-5">Reviews Form</h2>
+<div class="container" style="max-width:75%;">
+{%if user%}
+<table class="table">
+    <tr>
+    <td>User ID</td>
+    <td>Name</td>
+    <td>Review</td>
+        <td>Delete</td>
+    </tr>
+{%for users in user%}
+
+
+    <tr class="table-secondary">
+        <td>{{users[0]}}</td>
+         <td>{{users[1]}}</td>
+         <td>{{users[2]}}</td>
+       <td><a href="{{ url_for('delete_review', id=users[0]) }}" class="btn btn-danger">Delete</a>
+</td>
+
+    </tr>
+
+{%endfor%}
+</table>
+
+{%endif%}
+
+     <div class="form-group col-4 mx-auto mt-5">
+        <a href="/admin_dashboard" class="btn btn-dark mt-45 form-group col-12 mx-auto p-4">Go Back To Admin Dashboard</a>
+     </div>
+</div>
+
+
+
+{% endblock %}

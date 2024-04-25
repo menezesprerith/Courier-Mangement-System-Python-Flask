@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content%}
+
+{% include 'admin_header.html' %}
+
+
+<div class="" >
+  <h2 class="text-white text-center display-4 mt-5 mb-3">Customer Login Details</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class = "alert alert-success">
+            <ul>
+                {% for mess in messages %}
+                <li>{{mess}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+
+
+    {% if user %}
+    <div class="p-5">
+
+
+    <table class="table" >
+    <tr>
+      <th scope="row">User Id</th>
+      <th scope="row">Name</th>
+      <th scope="row">Email</th>
+      <th scope="row">Phone</th>
+      <th scope="row">Address</th>
+
+    </tr>
+        {%for users in user%}
+    <tr>
+        <td class="table-secondary">{{users[0]}}</td>
+        <td class="table-secondary">{{users[1]}}</td>
+        <td class="table-secondary">{{users[2]}}</td>
+        <td class="table-secondary">{{users[4]}}</td>
+        <td class="table-secondary">{{users[5]}}</td>
+    </tr>
+        {%endfor%}
+
+    </table>
+        </div>
+    {%endif%}
+
+    <div class="p-5">
+
+    <div class="form-group col-4 mx-auto ">
+        <a href="/admin_dashboard" class="btn btn-dark mt-45 form-group col-12 mx-auto p-4">Go Back To Admin Dashboard</a>
+     </div>
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}

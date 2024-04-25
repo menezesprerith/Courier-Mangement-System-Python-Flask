@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content%}
+
+{% include 'header.html' %}
+
+<div class="container">
+  <h2 class="text-center text-white mt-4 mb-5 display-4">Pricing Board</h2>
+{%if item%}
+    <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Weigth</th>
+      <th scope="col">Rate</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for row in item %}
+    <tr class="table-secondary">
+        <td style="text-align:left;">{{ row[0] }}</td>
+        <td style="text-align:left;">₹{{ row[1] }}</td>
+    </tr>
+{% endfor %}
+
+  </tbody>
+</table>
+
+{%endif%}
+</div>
+
+{%include 'footer.html'%}
+
+{% endblock %}

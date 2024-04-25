@@ -1,0 +1,185 @@
+{%extends 'base.html'%}
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content%}
+
+{% include 'header.html' %}
+
+<div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+
+
+
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="/static/img/TEC_nb_ext.jpg"  class="d-block w-100" alt="tec_logo">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000" >
+      <img src="/static/img/cargo_plane.jpg" class="d-block w-100" alt="plane">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000" >
+      <img src="/static/img/cargo_ship.jpg" class="d-block w-100" alt="ship">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000" >
+      <img src="/static/img/cargo_truck.jpg" class="d-block w-100" alt="truck">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000" >
+      <img src="/static/img/cargo.jpg" class="d-block w-100" alt="cargo">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000" >
+      <img src="/static/img/delivery_man.jpg" class="d-block w-100" alt="man">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000" >
+      <img src="/static/img/stacked_boxes.jpg" class="d-block w-100" alt="boxes">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+ <div class="col-lg-3 mb-4">
+<div class="card hover:bg-success hover:text-dark hover:shadow-lg" style="width: 18rem;">
+  <img src="/static/img/admin.jpg" class="card-img-top" alt="admin">
+  <div class="card-body">
+    <h5 class="card-title">Admin</h5>
+    <p class="card-text">The admin and associates can log in through here.</p>
+    <a href="/admin" target="_blank" class="btn btn-primary">Admin Login</a>
+  </div>
+</div>
+   </div>
+    <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/price.jpg" class="card-img-top" alt="currency">
+  <div class="card-body">
+    <h5 class="card-title">View Pricing</h5>
+    <p class="card-text">Check the price for your package delivery.</p>
+    <a href="/pricing" target="_blank" class="btn btn-primary">Package info</a>
+  </div>
+</div>
+    </div>
+     <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/book_shipment.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Bookings</h5>
+    <p class="card-text">Ready to send you parcels?</p>
+    <a href="/bookings" target="_blank" class="btn btn-primary">Book Here</a>
+  </div>
+</div>
+     </div>
+    <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/progress.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Track you Package</h5>
+    <p class="card-text">Find out, where your packages are?</p>
+    <a href="/status" target="_blank" class="btn btn-primary">Status</a>
+  </div>
+</div>
+     </div>
+    <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/signup.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Create Account</h5>
+    <p class="card-text">Don't have a account, Create one.</p>
+    <a href="/register" target="_blank" class="btn btn-primary">Sign Up</a>
+  </div>
+</div>
+     </div>
+
+    <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/login.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Login In</h5>
+    <p class="card-text">Already have a account, sign in here.</p>
+    <a href="/login" target="_blank" class="btn btn-primary">Sign in</a>
+  </div>
+</div>
+     </div>
+
+    <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/review.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Write a Review</h5>
+    <p class="card-text">Want to help us grow. Your reviews mean a lot.</p>
+    <a href="/reviews" target="_blank" class="btn btn-primary">Review</a>
+  </div>
+</div>
+     </div>
+
+    <div class="col-lg-3 mb-4">
+<div class="card" style="width: 18rem;">
+  <img src="/static/img/contact.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Customer Care</h5>
+    <p class="card-text">Have an issue, We hear you at your fingers.</p>
+    <a href="/customer_support" target="_blank" class="btn btn-primary">Support</a>
+  </div>
+</div>
+     </div>
+
+
+  </div>
+</div>
+
+
+<div class="container mt-5">
+       <hr style="height:5px;border-width:0;color:gray;background-color:white">
+
+  <h1 class="text-white m-5 text-center">Thoughts of our valuable Customers</h1>
+{%for reviews in review%}
+  <div class="container">
+
+<div class="testimonial">
+
+  <img src="/static/img/face.jpg" alt="Avatar" style="width:90px">
+  <p><span>
+    {{reviews[1]}}
+    <i class="bi bi-star-fill text-warning"></i>
+    <i class="bi bi-star-fill text-warning"></i>
+    <i class="bi bi-star-fill text-warning"></i>
+    <i class="bi bi-star-fill text-warning"></i>
+    <i class="bi bi-star-fill text-warning"></i>
+    </span>
+  </p>
+  <p>{{reviews[2]}}</p>
+</div>
+</div>
+{%endfor%}
+</div>
+
+
+
+
+
+
+
+{%include 'home_footer.html'%}
+
+
+{% endblock %}

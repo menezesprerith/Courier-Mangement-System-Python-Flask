@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content%}
+
+{% include 'header.html' %}
+
+<div class="" >
+  <h2 class="text-white text-center display-1 mt-4 mb-5">Welcome to the Dashboard</h2>
+   {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class = "alert alert-success">
+            <ul>
+                {% for mess in messages %}
+                <li>{{mess}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+  <hr style="height:5px;border-width:0;color:gray;background-color:white">
+    {% if user %}
+    <div class="p-5">
+        <p class="text-white text-center display-4 mb-5">User Information</p>
+
+    <table class="table" >
+    <tr>
+      <th scope="row">Name</th>
+      <td class="table-secondary">{{user[1]}}</td>
+    </tr>
+    <tr>
+      <th scope="row" >Email</th>
+      <td class="table-secondary">{{user[2]}}</td>
+    </tr>
+    <tr>
+      <th scope="row" >Phone</th>
+      <td class="table-secondary">{{user[4]}}</td>
+    </tr>
+    <tr>
+      <th scope="row" >Address</th>
+      <td class="table-secondary">{{user[5]}}</td>
+    </tr>
+
+
+    </table>
+        </div>
+    {%endif%}
+
+ <hr style="height:5px;border-width:0;color:gray;background-color:white">
+
+  {% if order %}
+<div class="p-5">
+    <p class="text-white text-center display-4 mb-5">Order Information</p>
+
+
+
+
+
+<div class="container" style="max-width: 500px;">
+
+    <table class="table" style="margin-left: auto; margin-right: auto;">
+        <thead>
+            <tr>
+                <th scope="col" class=" text-center">Order_id</th>
+                <th scope="col" class=" text-center">Download Invoice</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for orders in order %}
+            <tr>
+             <td class="table-secondary text-center">{{ orders[0] }}</td>
+            <td class="table-secondary text-center"><a href="{{ url_for('generate_pdf', id=orders[0]) }}" class=" btn btn-warning">Invoice</a></td>
+            </tr>
+            {% endfor %}
+
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+      </div>
+
+   {% endif %}
+    <div class="form-group col-4 mx-auto mb-1">
+        <a href="/bookings" class="btn btn-dark mt-45 form-group col-12 mx-auto p-4">Book Courier</a>
+     </div>
+
+    <div class="form-group col-4 mx-auto mb-5">
+        <a href="/status" class="btn btn-dark mt-45 form-group col-12 mx-auto p-4">View Status</a>
+     </div>
+
+    <div class="form-group col-4 mx-auto mt-5">
+        <a href="/logout" class="btn btn-dark mt-45 form-group col-12 mx-auto p-4">Logout</a>
+     </div>
+
+
+
+
+</div>
+
+{%include 'footer.html'%}
+
+{% endblock %}

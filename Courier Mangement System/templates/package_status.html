@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content%}
+
+{% include 'admin_header.html' %}
+
+
+<div class="" >
+  <h2 class="text-white text-center display-4 mt-5 mb-3">Customer Booking Details</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class = "alert alert-success">
+            <ul>
+                {% for mess in messages %}
+                <li>{{mess}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+
+
+    {% if user %}
+    <div class="p-5 ">
+
+
+
+
+
+        <table class="table">
+        <tr>
+            <th scope="row">Order Id</th>
+            <th scope="row">Weight</th>
+            <th scope="row">Date and Time</th>
+            <th scope="row">Pickup City</th>
+            <th scope="row">Pickup Address</th>
+            <th scope="row">Pickup Pincode</th>
+            <th scope="row">Destination City</th>
+            <th scope="row">Destination Address</th>
+            <th scope="row">Destination Pincode</th>
+            <th scope="row">Current Location</th>
+            <th scope="row">Current Status</th>
+            <th scope="row">Package Type</th>
+
+
+
+        </tr>
+            {%for users in user%}
+        <tr>
+            <td class="table-secondary">{{users[0]}}</td>
+            <td class="table-secondary">{{users[2]}}</td>
+            <td class="table-secondary">{{users[3]}}</td>
+            <td class="table-secondary">{{users[4]}}</td>
+            <td class="table-secondary">{{users[5]}}</td>
+            <td class="table-secondary">{{users[6]}}</td>
+            <td class="table-secondary">{{users[7]}}</td>
+            <td class="table-secondary">{{users[8]}}</td>
+            <td class="table-secondary">{{users[9]}}</td>
+            <td class="table-secondary">{{users[10]}}</td>
+            <td class="table-secondary">{{users[11]}}</td>
+            <td class="table-secondary">{{users[12]}}</td>
+
+
+
+        </tr>
+            {%endfor%}
+
+        </table>
+
+
+
+        <div class="p-5">
+
+
+
+</div>
+
+
+        </div>
+
+
+     <hr style="height:5px;border-width:0;color:gray;background-color:white">
+
+
+<div class="" >
+  <h2 class="text-white text-center display-1 mt-5 mb-5">Package Status Update form</h2>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class = "alert alert-success">
+            <ul>
+                {% for mess in messages %}
+                <li>{{mess}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+  <form action="/package_status" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group col-4 mx-auto mb-4">
+      <label for="order_id" class="text-white">{{ form.order_id.label.text }}</label>
+      {{ form.order_id(class="form-control p-4", id="order_id") }}
+    </div>
+
+       <div class="form-group col-4 mx-auto mb-4">
+      <label for="currentLocation" class="text-white">{{ form.currentLocation.label.text }}</label>
+      {{ form.currentLocation(class="form-control p-4", id="currentLocation") }}
+    </div>
+
+      <div class="form-group col-4 mx-auto mb-4">
+      <label for="currentStatus" class="text-white">{{ form.currentStatus.label.text }}</label>
+      {{ form.currentStatus(class="form-control p-4", id="currentStatus") }}
+    </div>
+
+    <div class="form-group col-4 mx-auto ">
+      {{ form.submit(class="btn btn-dark mt-45 form-group col-12 mx-auto p-4")}}
+    </div>
+  </form>
+
+
+
+
+    <div class="p-5">
+
+    <div class="form-group col-4 mx-auto mt-5">
+        <a href="/admin_dashboard" class="btn btn-dark mt-45 form-group col-12 mx-auto p-4">Go Back To Admin Dashboard</a>
+     </div>
+
+
+</div>
+
+{%endif%}
+
+
+
+
+{% endblock %}

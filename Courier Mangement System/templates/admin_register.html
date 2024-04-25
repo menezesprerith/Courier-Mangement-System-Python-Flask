@@ -1,0 +1,71 @@
+{%extends 'base.html'%}
+
+
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+
+{% block content%}
+
+{% include 'header.html' %}
+
+<div class="container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+  <h2 class="text-white text-center display-1 mb-5 mt-5">Admin Registration form</h2>
+  <form action="/adminregister" method="POST">
+      {{ form.hidden_tag() }}
+    <div class="form-group col-4 mx-auto mb-4">
+       <label for="name" class="text-white">{{ form.name.label.text }}</label>
+      {{ form.name(id="name",class="form-control p-4",placeholder="Enter name")}}
+
+        {% if form.name.errors %}
+            <ul>
+                {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="form-group col-4 mx-auto mb-4">
+
+       <label for="email" class="text-white">{{ form.email.label.text }}</label>
+      {{ form.email(id="email",class="form-control p-4",placeholder="Enter email",type="email")}}
+
+        {% if form.email.errors %}
+            <ul>
+                {% for error in form.email.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+       <div class="form-group col-4 mx-auto mb-4">
+
+       <label for="password" class="text-white">{{ form.password.label.text }}</label>
+      {{ form.password(id="password",class="form-control p-4",placeholder="Create password",type="password")}}
+
+        {% if form.password.errors %}
+            <ul>
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+    <div class="form-group col-4 mx-auto ">
+    {{ form.submit(class="btn btn-dark mt-45 form-group col-12 mx-auto p-4")}}
+      </div>
+
+  </form>
+</div>
+
+
+{%include 'footer.html'%}
+
+{% endblock %}

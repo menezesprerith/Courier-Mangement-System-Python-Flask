@@ -1,0 +1,192 @@
+{%extends 'base.html'%}
+
+
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+
+{% block content%}
+
+{% include 'header.html' %}
+
+<div class="" >
+  <h2 class="text-white text-center display-1 mb-5">Bookings form</h2>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class = "alert alert-alert">
+            <ul>
+                {% for mess in messages %}
+                <li>{{mess}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+
+  <form action="/bookings" method="POST">
+      {{ form.hidden_tag() }}
+
+    <div class="form-group col-4 mx-auto mt-5 mb-5">
+
+        <label for="weight" class="text-white">{{ form.weight.label.text }}</label>
+        {{ form.weight(class="form-control p-4", id="weight") }}
+
+
+
+        {% if form.weight.errors %}
+            <ul>
+                {% for error in form.weight.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+    </div>
+
+<div class="form-group col-4 mx-auto mb-4">
+     <hr style="height:5px;border-width:0;color:gray;background-color:white">
+
+        <label for="source" class="text-white">{{ form.source.label.text }}</label>
+        {{ form.source(class="form-control p-4", id="source") }}
+
+        {% if form.source.errors %}
+            <ul>
+                {% for error in form.source.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+       <div class="form-group col-4 mx-auto mb-4">
+
+        <label for="s_address" class="text-white">{{ form.s_address.label.text }}</label>
+        {{ form.s_address(class="form-control p-4", id="s_address",placeholder="Enter Address",rows="5", cols="50") }}
+
+
+
+        {% if form.s_address.errors %}
+            <ul>
+                {% for error in form.s_address.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    </div>
+
+           <div class="form-group col-4 mx-auto mb-4">
+
+        <label for="s_pincode" class="text-white">{{ form.s_pincode.label.text }}</label>
+        {{ form.s_pincode(class="form-control p-4", id="s_pincode",placeholder="Enter Pincode",rows="5", cols="50") }}
+
+
+
+        {% if form.s_pincode.errors %}
+            <ul>
+                {% for error in form.s_pincode.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    </div>
+
+    <div class="form-group col-4 mx-auto mb-4 mt-5">
+             <hr style="height:5px;border-width:0;color:gray;background-color:white">
+
+
+        <label for="destination" class="text-white">{{ form.destination.label.text }}</label>
+        {{ form.destination(class="form-control p-4", id="destination") }}
+
+
+
+        {% if form.destination.errors %}
+            <ul>
+                {% for error in form.destination.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    </div>
+
+      <div class="form-group col-4 mx-auto mb-4">
+
+        <label for="d_address" class="text-white">{{ form.d_address.label.text }}</label>
+        {{ form.d_address(class="form-control p-4", id="d_address",placeholder="Enter Address",rows="5", cols="50") }}
+
+
+
+        {% if form.d_address.errors %}
+            <ul>
+                {% for error in form.d_address.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    </div>
+
+      <div class="form-group col-4 mx-auto mb-4">
+
+        <label for="d_pincode" class="text-white">{{ form.d_pincode.label.text }}</label>
+        {{ form.d_pincode(class="form-control p-4", id="d_pincode",placeholder="Enter Pincode",rows="5", cols="50") }}
+
+
+
+        {% if form.d_pincode.errors %}
+            <ul>
+                {% for error in form.d_pincode.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    </div>
+
+
+      <div class="form-group col-4 mx-auto mt-5">
+    {{ form.submit(class="btn btn-dark mt-45 form-group col-12 mx-auto p-4")}}
+      </div>
+
+
+
+
+  </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{%include 'footer.html'%}
+
+
+
+
+
+
+{% endblock %}
